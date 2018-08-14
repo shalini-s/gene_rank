@@ -1,0 +1,53 @@
+{# tutorial/templates/tutorial/people.html #}
+{% load render_table from django_tables2 %}
+<!doctype html>
+<html>
+    <head>
+        <title>Feature Rank</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        <link rel="stylesheet" href="main.css" />
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #e3f2fd;">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#ranked_box">Ranked Box</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#plots">Gradient Plots</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#table">Table</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+    </head>
+    <body>
+	<h1 style="font-size:45px;margin-top:75px;" align = "center">SurvivalNet Output</h1>
+	<div>
+    	{% load static %}
+		<img id="ranked_box" STYLE="position:absolute; TOP:150px; LEFT:200px; WIDTH:800px; HEIGHT:650px" src="{% static 'ranked_box.png' %}" alt="My image"/>
+		<img id="paired_scatter_gradient" STYLE="position:absolute; TOP:900px; LEFT:200px; WIDTH:800px; HEIGHT:650px" src="{% static 'paired_scatter_gradient.png' %}" alt="My image"/>
+		<img id = "paired_scatter_feature" STYLE="position:absolute; TOP:1650px; LEFT:200px; WIDTH:800px; HEIGHT:650px" src="{% static 'paired_scatter_feature.png' %}" alt="My image"/>
+		<img id="plots" STYLE="position:absolute; TOP:2400px; LEFT:100px; WIDTH:500px; HEIGHT:400px" src="{% static 'km_ERBB3_Protein-1.jpg' %}" alt="My image"/>
+		<img STYLE="position:absolute; TOP:2400px; LEFT:700px; WIDTH:500px; HEIGHT:400px" src="{% static 'km_GRHL3_Mut-1.jpg' %}" alt="My image"/>
+		<img STYLE="position:absolute; TOP:2900px; LEFT:100px; WIDTH:500px; HEIGHT:400px" src="{% static 'km_histological_type-Is-oligoastrocytoma_Clinical-1.jpg' %}" alt="My image"/>
+		<img STYLE="position:absolute; TOP:2900px; LEFT:700px; WIDTH:500px; HEIGHT:400px" src="{% static 'km_histological_type-Is-oligodendroglioma_Clinical-1.jpg' %}" alt="My image"/>
+		<img STYLE="position:absolute; TOP:3400px; LEFT:100px; WIDTH:500px; HEIGHT:400px" src="{% static 'km_NUDT11_Mut-1.jpg' %}" alt="My image"/>
+		<img STYLE="position:absolute; TOP:3400px; LEFT:700px; WIDTH:500px; HEIGHT:400px" src="{% static 'km_PREX1_Protein-1.jpg' %}" alt="My image"/>
+		<img STYLE="position:absolute; TOP:3900px; LEFT:100px; WIDTH:500px; HEIGHT:400px" src="{% static 'km_TMPRSS6_Mut-1.jpg' %}" alt="My image"/>
+		<img STYLE="position:absolute; TOP:3900px; LEFT:700px; WIDTH:500px; HEIGHT:400px" src="{% static 'km_TSC1_Protein-1.jpg' %}" alt="My image"/>
+		<img id="kmBADProtein" STYLE="position:absolute; TOP:4400px; LEFT:400px; WIDTH:500px; HEIGHT:400px" src="{% static 'kmBADProtein1.jpg' %}" alt="My image"/>
+    	<!-- <img src="km_BAD_Protein-1.jpg" alt="km_BAD_Protein-1"> -->
+	</div>
+	<div id="table"  style = "position:absolute;top:4850px;left:300px;">
+                {% render_table table %}
+        </div>
+    </body>
+</html>
